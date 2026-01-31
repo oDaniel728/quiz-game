@@ -26,17 +26,17 @@ quiz-game/
 │       └── points.py       # Sistema de pontuação
 │
 └── data/
-└── math/
-├── pack.json       # Configuração do pacote de matemática
-├── questions/      # Perguntas do quiz
-│   ├── 1.json
-│   ├── 2.json
-│   └── ...
-├── events/         # Eventos de sucesso e falha
-│   ├── success.json
-│   └── failed.json
-└── tags/
-└── questions.json
+    └── math/
+        ├── pack.json       # Configuração do pacote de matemática
+        ├── questions/      # Perguntas do quiz
+        │   ├── 1.json
+        │   ├── 2.json
+        │   └── ...
+        ├── events/         # Eventos de sucesso e falha
+        │   ├── success.json
+        │   └── failed.json
+        └── tags/
+            └── questions.json
 
 ````
 
