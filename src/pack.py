@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Literal, NotRequired, TypedDict
+from typing import Any, Literal, NotRequired, Type, TypeVar, TypedDict, cast
 from .common import getjson
 
+T = TypeVar("T")
 
 root = Path(".").resolve() / "data/"
 class TQuestionEvent(TypedDict):
@@ -28,8 +29,9 @@ class TPack(TypedDict):
     format: int
     description: NotRequired[str]
     version: NotRequired[str]
+    author: NotRequired[str] # format >= 3
 
-class TEvent(TypedDict):
+class TEvent(TypedDict): # TPack.format >= 2
     require: NotRequired[list[str]]
     run: list[str]
 
@@ -88,6 +90,13 @@ class Pack:
 
         script = '\n'.join(run)
         exec(script, data)
+
+    @property
+    def format(self) -> int:
+        return self.get_pack()['format']
+
+    def get(self, key: str, default: Type[T]) -> T:
+        return cast(T, self.get_pack().get(key, default))
         
 class PackFormatError(Exception):
     def __init__(self, current: int, minimum: int | None = None, maximum: int | None = None) -> None:
@@ -118,6 +127,9 @@ class PackManager:
     
     def get_pack(self, name: str) -> TPack:
         return self.packs[name].get_pack()
+    
+    def get_pack_c(self, name: str) -> Pack:
+        return Pack(self, name)
 
     def iter(self):
         for p in self.packs.values():

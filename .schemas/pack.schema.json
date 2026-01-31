@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Quiz Datapack - Pack",
   "type": "object",
-  "required": ["name", "description", "version", "author"],
+  "required": ["name", "description", "version"],
   "properties": {
     "name": {
       "type": "string",
@@ -18,9 +18,21 @@
       "description": "Versão semântica (ex: 1.0.0)"
     },
     "format": {
-        "type": "integer",
-        "minimum": 1
+      "type": "integer",
+      "minimum": 1,
+      "description": "Formato do datapack"
+    },
+    "author": {
+      "type": "string",
+      "description": "Nome do autor do datapack"
     }
   },
+  "if": {
+    "properties": {"format": {"minimum": 3}}
+  },
+  "then": {
+    "required": ["author"]
+  },
+  "else": {"not": {"required": ["author"]}},
   "additionalProperties": false
 }

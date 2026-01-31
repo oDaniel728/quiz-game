@@ -27,6 +27,20 @@ class Program:
         self.run()
     #
 
+    def print_title(self, p: Pack):
+        pack_json = p.get_pack()
+        format = p.format
+        name = pack_json["name"]
+
+        if format >= 3:    
+            console.print(f"[bold]{name}[/]", style="#1a81f8", end=' ')
+            console.print(f"[bold]by", style="#c8c8c8", end=' ')
+            console.print(f"{pack_json.get('author', 'Unknown')}[/]", style="#81f344", end=' ')
+        else:
+            console.print(f"[bold]{name}[/]", style="#1a81f8")
+        console.print(f"({len(p.get_questions())} questions)", style="#3bcd3b")
+    #
+
     def question(self, q: TQuestion, tries: int = -2):
         if health.get() <= 0:
             return 'break'
@@ -75,20 +89,21 @@ class Program:
                     self.question(q, tries - 1)
                 elif tries == -1:
                     self.question(q, -1)
-                #
-            #
-        #
 
+    def run_pack(self, pack: Pack):
+        orders = pack.get_questions()
+        for question in orders.values():
+            res = self.question(question)
+            if res == 'break': 
+                return 'break'
     def run(self):
-        for question in self.orders:
-            
-            q = self.pm.get_question(question)
-            res = self.question(q)
+        for pack in self.pm.packs.values():
+        
+            res = self.run_pack(pack)
             if res == 'break': 
                 console.print('You lose!', style='#d31818')
                 break
             
-        #
         console.print("")
         console.print(f'You have [bold]{points.get()}[/] points and [bold]{health.get()}[/] health left.', style="#1a81f8")
     #
