@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quiz Datapack - Question",
+  "type": "object",
+  "required": ["name", "answer"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answer": {
+      "type": "string"
+    },
+    "type": {
+        "type": "string",
+        "enum": ["literal"],
+        "default": "literal"
+    },
+    "retry": {
+        "type": "boolean",
+        "default": false
+    },
+    "tries": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 1
+    },
+    "on": {
+        "type": "object",
+        "properties": {
+            "success": {
+                "type": "string",
+                "minLength": 1
+            },
+            "failed": {
+                "type": "string",
+                "minLength": 1
+            }
+        }
+    }
+  },
+  "additionalProperties": false
+}

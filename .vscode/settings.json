@@ -1,0 +1,23 @@
+{
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnusedExpression": "none"
+    },
+    "json.schemas": [
+        {
+            "fileMatch": ["**/pack.json"],
+            "url": "./.schemas/pack.schema.json"
+        },
+        {
+            "fileMatch": ["**/questions/*.json"],
+            "url": "./.schemas/question.schema.json"
+        },
+        {
+            "fileMatch": ["**/events/success.json", "**/events/failed.json"],
+            "url": "./.schemas/events.schema.json"
+        },
+        {
+            "fileMatch": ["**/tags/*.json"],
+            "url": "./.schemas/tags.schema.json"
+        }
+    ]
+}

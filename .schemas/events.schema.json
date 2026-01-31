@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quiz Datapack - Events",
+  "type": "object",
+  "required": ["require", "run"],
+  "properties": {
+    "require": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        }
+    },
+    "run": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        }
+    }
+  }
+}

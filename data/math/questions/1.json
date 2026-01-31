@@ -1,0 +1,12 @@
+{
+    "type": "literal",
+    "name": "1 + 1?",
+    "answer": "2",
+
+    "retry": true,
+    "tries": 3,
+    "on": {
+        "success": "math:success",
+        "failed": "math:failed"
+    }
+}

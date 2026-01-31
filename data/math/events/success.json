@@ -1,0 +1,7 @@
+{
+    "require": ["points", "console"],
+    "run": [
+        "console.print('foo')",
+        "points.sum(1)"
+    ]
+}

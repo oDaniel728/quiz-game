@@ -1,0 +1,6 @@
+{
+    "require": ["health"],
+    "run": [
+        "health.damage(1)"
+    ]
+}

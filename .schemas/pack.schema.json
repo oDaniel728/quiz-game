@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quiz Datapack - Pack",
+  "type": "object",
+  "required": ["name", "description", "version", "author"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome exibido do datapack"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrição do conteúdo do pack"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Versão semântica (ex: 1.0.0)"
+    },
+    "format": {
+        "type": "integer",
+        "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}

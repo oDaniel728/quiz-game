@@ -1,0 +1,5 @@
+{
+    "type": "literal",
+    "name": "3x + 3 = 12; x = ?",
+    "answer": "3"
+}

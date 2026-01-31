@@ -1,0 +1,5 @@
+{
+    "type": "literal",
+    "name": "2(2 + 2)?",
+    "answer": "8"
+}
