@@ -46,11 +46,12 @@ quiz-game/
 
 ### Requisitos
 - Python **3.11+**
+- `pip install -r requirements.txt`(Possui [PySimpleEvents](https://github.com/oDaniel728/simple-events) e rich)
 
 ### Execução direta
 ```bash
 python main.py
-````
+```
 
 ### No Windows
 
@@ -68,12 +69,7 @@ run.bat
   * Perguntas
   * Eventos de sucesso e falha
   * Tags e metadados
-* O sistema é **orientado a eventos**, permitindo ações como:
-
-  * Ganho/perda de pontos
-  * Alteração de vida
-  * Feedback dinâmico ao jogador
-
+> Veja [DataPack](docs/datapack.md)
 ---
 
 ## ➕ Adicionando Novas Perguntas
@@ -94,7 +90,6 @@ O jogo utiliza módulos independentes para facilitar manutenção e expansão:
 
 * `health.py` → controle de vida
 * `points.py` → controle de pontuação
-* novos módulos podem ser adicionados em `src/modules/`
 
 ---
 

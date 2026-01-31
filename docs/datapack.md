@@ -183,6 +183,9 @@ As tags servem para compilar informações em um só arquivo.
 
 ---
 
+## 🔗 Schemas
+O sistema de datapacks possui um sistema de schemas embutido([~/.schemas/](../.schemas) e [~/.vscode/settings.json](../.vscode/settings.json))
+
 ## ➕ Criando um Novo Data Pack
 
 1. Crie uma nova pasta em `data/`
@@ -201,7 +204,6 @@ As tags servem para compilar informações em um só arquivo.
 
 * Arquivos **devem estar em JSON válido**
 * Os nomes dos arquivos de perguntas não importam, desde que sejam `.json`
-* Eventos devem ser listas de strings
 * Tudo é referido a partir de `resource_location`, que segue no formato `datapack:nome`, que dependendo do contexto pode ser arquivos diferentes
 ---
 
